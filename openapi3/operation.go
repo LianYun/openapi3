@@ -3,7 +3,6 @@ package openapi3
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"strconv"
 
@@ -199,8 +198,6 @@ func (operation *Operation) Validate(ctx context.Context, opts ...ValidationOpti
 		if err := v.Validate(ctx); err != nil {
 			return err
 		}
-	} else {
-		return errors.New("value of responses must be an object")
 	}
 
 	if v := operation.ExternalDocs; v != nil {
